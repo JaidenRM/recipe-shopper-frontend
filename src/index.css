@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .slide-right {
+    @apply hover:text-light hover:shadow-slide hover:shadow-dark transition ease-in duration-[750ms];
+    @apply dark:hover:text-dark dark:hover:shadow-slide dark:hover:shadow-light;
+  }
+
+  .bg-slide-right-hover {
+    @apply bg-dark-light-right dark:bg-light-dark-right;
+    @apply bg-right-bottom bg-double-x;
+    @apply hover:bg-left-bottom hover:text-light dark:hover:text-dark;
+    @apply transition-all ease-in duration-[800ms];
+  }
+
+  .bg-slide-down {
+    @apply bg-dark-light-bottom dark:bg-light-dark-bottom;
+    @apply bg-bottom bg-double-y;
+    @apply dark:text-light text-dark;
+    @apply transition-[background] ease-out duration-[600ms];
+  }
+  
+  .bg-slide-down.activate {
+    @apply bg-top text-light dark:text-dark;
+  }
+
+  .error-msg {
+    @apply text-[#c20000] text-3xl;
+  }
+
+  .styled-input {
+    @apply bg-light border-2 rounded-md border-dark dark:bg-dark dark:border-light px-1.5 py-0.5;
+  }
+}
+
+:root {
+  --light-colour: #f7f7f7;
+  --dark-colour: #171717;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,7 +47,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 }
 
 code {
@@ -19,9 +56,11 @@ code {
 
 html {
   transition: background-color 1s ease;
+  background: var(--light-colour);
+  color: var(--dark-colour);
 }
 
 .dark {
-  background: black;
-  color: white;
+  background: var(--dark-colour);
+  color: var(--light-colour) !important;
 }

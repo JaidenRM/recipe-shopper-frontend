@@ -9,31 +9,31 @@ interface NavMenuProps {
 
 export const NavMenu: FC<NavMenuProps> = ({ menuItems }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const reactMenuItems = menuItems.map(item => <NavMenuItem {...item} />);
+    const reactMenuItems = menuItems.map((item, index) => <NavMenuItem key={`nav-${index}`} {...item} />);
 
     return (
-        <div className="flex items-center justify-between border-b border-black dark:border-white py-8 px-4">
+        <div className="flex items-center justify-between border-b-2 border-dark dark:border-light py-8 px-4">
             {/* Insert link to own website? */}
             <nav className="w-full">
-                <section className="MOBILE-MENU flex lg:hidden dark:text-white">
+                <section className="MOBILE-MENU flex lg:hidden dark:text-light">
                     <AnimatedButton
                         animationName="animate-wiggle-left-right"
                         className="HAMBURGER-ICON space-y-2 hover:cursor-pointer"
                         onClick={() => setIsOpen(prev => !prev)}
                     >
-                        <span className="block h-1 w-8 bg-black dark:bg-white"></span>
-                        <span className="block h-1 w-8 bg-black dark:bg-white"></span>
-                        <span className="block h-1 w-8 bg-black dark:bg-white"></span>
+                        <span className="block h-1 w-8 bg-dark dark:bg-light"></span>
+                        <span className="block h-1 w-8 bg-dark dark:bg-light"></span>
+                        <span className="block h-1 w-8 bg-dark dark:bg-light"></span>
                     </AnimatedButton>
 
-                    <div className={setMenuClass(isOpen) + " dark:bg-black"}>
+                    <div className={setMenuClass(isOpen) + " dark:bg-dark"}>
                         <AnimatedButton
                             animationName="animate-wiggle-right-left"
                             className="CROSS-ICON absolute top-0 right-0 px-8 py-8 hover:cursor-pointer"
                             onClick={() => setIsOpen(false)}
                         >
                             <svg
-                                className="h-8 w-8 text-black dark:text-white"
+                                className="h-8 w-8 text-dark dark:text-light"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
@@ -66,7 +66,7 @@ export const NavMenu: FC<NavMenuProps> = ({ menuItems }) => {
 
 const setMenuClass = (isMenuOpen: boolean): string => {
     if (isMenuOpen) {
-        return "flex absolute w-full h-screen top-0 left-0 bg-white" + 
+        return "flex absolute w-full h-screen top-0 left-0 bg-light" + 
             " z-10 flex-col justify-evenly items-center";
     }
 

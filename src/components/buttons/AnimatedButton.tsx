@@ -4,10 +4,10 @@ interface AnimatedButtonProps {
     children: ReactNode
     className?: string
     animationName: string
-    onClick: () => void
+    onClick?: () => void
 }
 
-export const AnimatedButton: FC<AnimatedButtonProps> = ({ children, onClick, className, animationName }) => {
+export const AnimatedButton: FC<AnimatedButtonProps> = ({ children, onClick = () => {}, className = "", animationName }) => {
     const [isAnimating, setIsAnimating] = useState(false);
     
     return (
