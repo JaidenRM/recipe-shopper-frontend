@@ -12,7 +12,7 @@
     @apply bg-dark-light-right dark:bg-light-dark-right;
     @apply bg-right-bottom bg-double-x;
     @apply hover:bg-left-bottom hover:text-light dark:hover:text-dark;
-    @apply transition-all ease-in duration-[800ms];
+    @apply transition-all ease-in duration-[600ms] delay-500;
   }
 
   .bg-slide-down {
@@ -27,7 +27,7 @@
   }
 
   .error-msg {
-    @apply text-[#c20000] text-3xl;
+    @apply text-[#ff4848] text-sm md:text-xl font-bold;
   }
 
   .styled-input {

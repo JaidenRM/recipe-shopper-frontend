@@ -1,9 +1,10 @@
-import { HomeScreen } from "./components/screens/HomeScreen";
+import { FC } from "react";
+import { HomePage } from "./pages/HomePage";
 
-export const App = () => {
+export const App: FC = () => {
   return (
-    <div className="App">
-      <HomeScreen />
-    </div>
+    <>
+      <HomePage />
+    </>
   );
-}
+};
